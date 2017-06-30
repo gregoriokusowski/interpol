@@ -9,7 +9,7 @@ import (
 	yaml "gopkg.in/yaml.v2"
 )
 
-func check(configFilePath string) Result {
+func Check(configFilePath string) Result {
 	config := parseConfig(configFilePath)
 	result := Result{}
 
