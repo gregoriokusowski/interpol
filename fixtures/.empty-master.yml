@@ -1,0 +1,8 @@
+master:
+  name: "en"
+  files:
+    - "fixtures/empty-master.yml"
+locales:
+  - name: pt
+    files:
+      - "fixtures/empty-master.yml"
