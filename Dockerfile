@@ -1,4 +1,4 @@
-FROM golang:1.9-alpine
+FROM golang:1.9-alpine as builder
 MAINTAINER Gregorio Kusowski
 
 RUN mkdir -p /go/src/github.com/gregoriokusowski/interpol
@@ -9,7 +9,10 @@ WORKDIR /go/src/github.com/gregoriokusowski/interpol/cmd/interpol/
 
 RUN go build -i .
 
-RUN mkdir /interpol
-WORKDIR /interpol
+FROM alpine:latest
 
-CMD ["/go/src/github.com/gregoriokusowski/interpol/cmd/interpol/interpol"]
+RUN mkdir /interpol
+WORKDIR /interpol/
+COPY --from=builder /go/src/github.com/gregoriokusowski/interpol/cmd/interpol/interpol /root
+
+CMD ["/root/interpol"]
