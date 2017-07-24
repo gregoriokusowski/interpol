@@ -1,4 +1,4 @@
-FROM golang:latest
+FROM golang:1.9-alpine
 MAINTAINER Gregorio Kusowski
 
 RUN mkdir -p /go/src/github.com/gregoriokusowski/interpol
